@@ -14,6 +14,8 @@
 		CDF411782239C17F00358098 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDF411762239C17F00358098 /* LaunchScreen.storyboard */; };
 		CDF411832239C18000358098 /* autocomplete_testingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF411822239C18000358098 /* autocomplete_testingTests.swift */; };
 		CDF4118E2239C18000358098 /* autocomplete_testingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF4118D2239C18000358098 /* autocomplete_testingUITests.swift */; };
+		CDFD8E382242F0AE00DAB582 /* InputAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD8E362242F0AE00DAB582 /* InputAssistantView.swift */; };
+		CDFD8E392242F0AE00DAB582 /* InputAssistantCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD8E372242F0AE00DAB582 /* InputAssistantCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		CDF411892239C18000358098 /* autocomplete_testingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = autocomplete_testingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF4118D2239C18000358098 /* autocomplete_testingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = autocomplete_testingUITests.swift; sourceTree = "<group>"; };
 		CDF4118F2239C18000358098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDFD8E362242F0AE00DAB582 /* InputAssistantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAssistantView.swift; sourceTree = "<group>"; };
+		CDFD8E372242F0AE00DAB582 /* InputAssistantCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAssistantCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		CDF4116C2239C17F00358098 /* autocomplete_testing */ = {
 			isa = PBXGroup;
 			children = (
+				CDFD8E352242F0AE00DAB582 /* InputAssistant */,
 				CDF4116D2239C17F00358098 /* AppDelegate.swift */,
 				CDF4116F2239C17F00358098 /* ViewController.swift */,
 				CDF411712239C17F00358098 /* Main.storyboard */,
@@ -123,6 +128,15 @@
 				CDF4118F2239C18000358098 /* Info.plist */,
 			);
 			path = autocomplete_testingUITests;
+			sourceTree = "<group>";
+		};
+		CDFD8E352242F0AE00DAB582 /* InputAssistant */ = {
+			isa = PBXGroup;
+			children = (
+				CDFD8E362242F0AE00DAB582 /* InputAssistantView.swift */,
+				CDFD8E372242F0AE00DAB582 /* InputAssistantCollectionView.swift */,
+			);
+			path = InputAssistant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,13 +207,16 @@
 				TargetAttributes = {
 					CDF411692239C17F00358098 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					CDF4117D2239C18000358098 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CDF411692239C17F00358098;
 					};
 					CDF411882239C18000358098 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CDF411692239C17F00358098;
 					};
 				};
@@ -258,6 +275,8 @@
 			files = (
 				CDF411702239C17F00358098 /* ViewController.swift in Sources */,
 				CDF4116E2239C17F00358098 /* AppDelegate.swift in Sources */,
+				CDFD8E392242F0AE00DAB582 /* InputAssistantCollectionView.swift in Sources */,
+				CDFD8E382242F0AE00DAB582 /* InputAssistantView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +460,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "antonie.jovanoski.autocomplete-testing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -459,7 +478,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "antonie.jovanoski.autocomplete-testing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -479,7 +498,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "antonie.jovanoski.autocomplete-testingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/autocomplete_testing.app/autocomplete_testing";
 			};
@@ -500,7 +519,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "antonie.jovanoski.autocomplete-testingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/autocomplete_testing.app/autocomplete_testing";
 			};
@@ -520,7 +539,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "antonie.jovanoski.autocomplete-testingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = autocomplete_testing;
 			};
@@ -540,7 +559,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "antonie.jovanoski.autocomplete-testingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = autocomplete_testing;
 			};
