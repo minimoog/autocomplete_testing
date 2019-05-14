@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     let inputAssistantView: InputAssistantView = InputAssistantView()
     let allSuggestions = ["Suggestion", "Test", "Hello", "World", "More", "Suggestions"]
+    var matchedSuggestions: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +54,14 @@ class ViewController: UIViewController, UITextViewDelegate {
                 suggestionKeyWordState = .entering
                 keywordBuffer.append(text)
                 
-                print("keyword buffer: \(keywordBuffer)")
-                
             } else {
                 suggestionKeyWordState = .other
                 keywordBuffer = String()
             }
         }
+        
+        matchedSuggestions = allSuggestions.filter { $0.hasPrefix(keywordBuffer) }
+        inputAssistantView.reloadData()
         
         return true
     }
@@ -71,17 +73,30 @@ extension ViewController: InputAssistantViewDataSource {
     }
     
     func numberOfSuggestionsInInputAssistantView() -> Int {
-        return allSuggestions.count
+        return matchedSuggestions.count
     }
     
     func inputAssistantView(_ inputAssistantView: InputAssistantView, nameForSuggestionAtIndex index: Int) -> String {
-        return allSuggestions[index]
+        return matchedSuggestions[index]
     }
 }
 
 extension ViewController: InputAssistantViewDelegate {
     func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
-        self.textView.insertText(allSuggestions[index])
+
+        
+//        if let selectedRange = self.textView.selectedTextRange {
+//            if let newPosition = self.textView.position(from: selectedRange.start, offset: -keywordBuffer.count) {
+//
+//                // set the new position
+//                self.textView.selectedTextRange = self.textView.textRange(from: newPosition, to: newPosition)
+//            }
+//        }
+        
+        let lengthOfMatched = matchedSuggestions[index].count
+        let textToInsert = matchedSuggestions[index].suffix(lengthOfMatched - keywordBuffer.count)
+        
+        self.textView.insertText(String(textToInsert))
     }
 }
 
