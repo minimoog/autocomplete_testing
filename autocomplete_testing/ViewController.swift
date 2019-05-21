@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     let inputAssistantView: InputAssistantView = InputAssistantView()
     let allSuggestions = ["Suggestion", "Test", "Hello", "World", "More", "Suggestions"]
     var matchedSuggestions: [String] = []
+    let fixedSuggestion: [String] = ["[ ]", "{ }"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
         
         matchedSuggestions = allSuggestions.filter { $0.hasPrefix(keywordBuffer) }
+        matchedSuggestions.append(contentsOf: fixedSuggestion)
+        
         inputAssistantView.reloadData()
         
         return true
@@ -69,7 +72,7 @@ class ViewController: UIViewController, UITextViewDelegate {
 
 extension ViewController: InputAssistantViewDataSource {
     func textForEmptySuggestionsInInputAssistantView() -> String? {
-        return "No suggestioins"
+        return nil
     }
     
     func numberOfSuggestionsInInputAssistantView() -> Int {
@@ -92,11 +95,15 @@ extension ViewController: InputAssistantViewDelegate {
 //                self.textView.selectedTextRange = self.textView.textRange(from: newPosition, to: newPosition)
 //            }
 //        }
+        if index < (matchedSuggestions.endIndex - fixedSuggestion.count) {
         
-        let lengthOfMatched = matchedSuggestions[index].count
-        let textToInsert = matchedSuggestions[index].suffix(lengthOfMatched - keywordBuffer.count)
-        
-        self.textView.insertText(String(textToInsert))
+            let lengthOfMatched = matchedSuggestions[index].count
+            let textToInsert = matchedSuggestions[index].suffix(lengthOfMatched - keywordBuffer.count)
+            
+            self.textView.insertText(String(textToInsert))
+        } else {
+            self.textView.insertText(matchedSuggestions[index])
+        }
     }
 }
 
